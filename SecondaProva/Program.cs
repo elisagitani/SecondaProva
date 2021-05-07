@@ -79,11 +79,8 @@ namespace SecondaProva
             Priorita scelta;
            
                 Console.WriteLine("\nScegli l'importanza delle task che vuoi vedere (Alta, Media o Bassa):");
-                scelta = (Priorita)Enum.Parse(typeof(Priorita), Console.ReadLine());
-           
-                
-            
-            Console.WriteLine(agenda.FiltraDati(scelta,Formato.Normal));
+                scelta = (Priorita)Enum.Parse(typeof(Priorita), Console.ReadLine());  
+                Console.WriteLine(agenda.FiltraDati(scelta,Formato.Normal));
 
         }
 
@@ -100,8 +97,7 @@ namespace SecondaProva
                     Console.WriteLine($"La task {numero} è stata eliminata");
                 else
                     Console.WriteLine($"Task {numero} non esistente");
-            
-
+           
         }
 
         private static void VisualizzaTask()
@@ -132,15 +128,13 @@ namespace SecondaProva
 
             Priorita importanza;
 
-           
-
                 Console.Write("Inserisci importanza Alta, Media o Bassa: ");
                 importanza = (Priorita)Enum.Parse(typeof(Priorita), Console.ReadLine());
            
 
             Task task = agenda.CreaTask(descrizione, dataScadenza, importanza);
 
-            Console.WriteLine($"Task numero {task.Numero} descrizione: {task.Descrizione} data di scadenza: {task.DataDiScadenza} importanza:{task.Importanza}");
+            Console.WriteLine($"Task numero {task.Numero} descrizione: {task.Descrizione} data di scadenza: {task.DataDiScadenza.ToShortDateString()} importanza:{task.Importanza}");
 
         }
     }
